@@ -1,7 +1,7 @@
 {
   "id": "typora-community-plugin.note-refactor",
   "name": "Note Refactor",
-  "description": "",
+  "description": "Extract selection to new file.",
   "author": "plylrnsdy",
   "authorUrl": "https://github.com/plylrnsdy",
   "version": "1.0.0",
