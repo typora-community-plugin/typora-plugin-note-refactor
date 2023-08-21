@@ -8,4 +8,4 @@ Extract selection to new file.
 
 ## Preview
 
-![](https://fastly.jsdelivr.net/gh/typora-community-plugin/typora-plugin-note-refactor@main/docs/assets/base.jpg)
+![](./docs/assets/base.jpg)

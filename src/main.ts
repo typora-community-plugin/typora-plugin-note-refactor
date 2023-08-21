@@ -23,9 +23,6 @@ export default class extends Plugin {
     })
   }
 
-  onunload() {
-  }
-
   async extractSelection() {
     if (isInputComponent(document.activeElement)) return
 
