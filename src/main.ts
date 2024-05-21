@@ -1,7 +1,5 @@
-import * as fs from 'fs'
-import * as path from 'path'
-import { I18n, Plugin } from '@typora-community-plugin/core'
-import { ClientCommand, editor, isInputComponent } from 'typora'
+import { fs, I18n, path, Plugin } from '@typora-community-plugin/core'
+import { editor, File, isInputComponent } from 'typora'
 
 
 export default class extends Plugin {
@@ -29,14 +27,14 @@ export default class extends Plugin {
     const range = editor.selection.getRangy()
     if (range.collapsed) return
 
-    ClientCommand.copyAsMarkdown()
+    File.copy()
     const md = await navigator.clipboard.readText()
 
     const filename = md.split('\n').at(0)!
       .replace(/[\\\/:*?"<>|\[\]#]/g, '')
     const notepath = path.join(path.dirname(this.app.workspace.activeFile), filename + '.md')
 
-    fs.writeFileSync(notepath, md, 'utf8')
+    fs.writeText(notepath, md)
 
     editor.UserOp.backspaceHandler(editor, null, 'Delete')
   }
