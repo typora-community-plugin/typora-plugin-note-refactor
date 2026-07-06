@@ -1,0 +1,5 @@
+{
+  "extract": "Extract selection to new note - first line as file name",
+  "extractRename": "Extract selection to new note - manual rename it",
+  "placeholder": "Input the new note's name"
+}

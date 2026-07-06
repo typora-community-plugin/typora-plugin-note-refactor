@@ -1,23 +1,18 @@
+import * as Locale from './locales/lang.en.json'
 import { fs, I18n, openInputBox, path, Plugin } from '@typora-community-plugin/core'
 import { editor, File, isInputComponent } from 'typora'
 
 
 export default class extends Plugin {
 
-  i18n = new I18n({
-    resources: {
-      'en': {
-        extract: 'Extract selection to new note - first line as file name',
-        extractRename: 'Extract selection to new note - manual rename it',
-        placeholder: 'Input the new note\'s name',
-      },
-      'zh-cn': {
-        extract: '提取选中内容到新笔记 - 第一行作为文件名',
-        extractRename: '提取选中内容到新笔记 - 手动重命名',
-        placeholder: '请输入笔记名称',
-      },
-    }
-  })
+  i18n!: I18n<typeof Locale>
+
+  constructor(plugin: Plugin) {
+    super(plugin)
+    this.i18n = new I18n<typeof Locale>({
+      localePath: path.join(this.manifest.dir!, 'locales')
+    })
+  }
 
   onload() {
 
