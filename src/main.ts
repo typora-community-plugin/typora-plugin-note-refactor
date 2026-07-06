@@ -5,14 +5,9 @@ import { editor, File, isInputComponent } from 'typora'
 
 export default class extends Plugin {
 
-  i18n!: I18n<typeof Locale>
-
-  constructor(plugin: Plugin) {
-    super(plugin)
-    this.i18n = new I18n<typeof Locale>({
-      localePath: path.join(this.manifest.dir!, 'locales')
-    })
-  }
+  i18n = new I18n<typeof Locale>({
+    localePath: path.join(this.manifest.dir!, 'locales')
+  })
 
   onload() {
 
